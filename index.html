@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baked2Bites - Fresh Bakery Foods</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome untuk ikon -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #f8a851;
+      --secondary-color: #6d4534;
+      --bg-color: #fff9ee;
+      --text-color: #333;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+    
+    .navbar {
+      padding: 15px 0;
+      background-color: var(--bg-color);
+    }
+    
+    .navbar-brand img {
+      height: 40px;
+    }
+    
+    .nav-link {
+      color: var(--text-color) !important;
+      font-weight: 500;
+      margin: 0 10px;
+    }
+    
+    .nav-link.active {
+      color: var(--primary-color) !important;
+      border-bottom: 2px solid var(--primary-color);
+    }
+    
+    .hero-section {
+      background-color: var(--bg-color);
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+    
+    .hero-text p {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e8984b;
+    }
+    
+    .category-section {
+      padding: 60px 0;
+    }
+    
+    .category-item {
+      text-align: center;
+      background-color: white;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    
+    .category-item:hover {
+      transform: translateY(-10px);
+    }
+    
+    .category-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    
+    .features-section {
+      background-color: var(--primary-color);
+      padding: 40px 0;
+      color: white;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 300px;
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+    }
+    
+    .special-products {
+      padding: 60px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .section-title h2 {
+      color: var(--secondary-color);
+      font-weight: 700;
+    }
+    
+    .product-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+      margin-bottom: 30px;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .product-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin: 0 auto 15px;
+    }
+    
+    .product-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .product-price {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+    
+    .price-strike {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    .offer-section {
+      padding: 60px 0;
+      background-color: var(--bg-color);
+    }
+    
+    .offer-img {
+      position: relative;
+    }
+    
+    .discount-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-weight: 700;
+    }
+    
+    .best-sellers {
+      padding: 60px 0;
+    }
+    
+    .carousel-control-prev, .carousel-control-next {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    footer {
+      background-color: #2a1b18;
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+    
+    .footer-tagline {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    
+    .footer-links h5 {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.2rem;
+      margin-right: 15px;
+    }
+    
+    .copyright {
+      border-top: 1px solid #555;
+      padding-top: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-image {
+        margin-top: 30px;
+      }
+      
+      .category-item {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+      }
+      
+      .category-item img {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .feature-item {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header/Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/api/placeholder/120/40" alt="Baked2Bites" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tentang Kami</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Produk</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Kontak</a>
+          </li>
+        </ul>
+        <div class="ms-3 d-flex align-items-center">
+          <a href="#" class="me-3"><i class="fas fa-search"></i></a>
+          <a href="#" class="me-3"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 hero-text">
+          <p>Get 80% discount</p>
+          <h1>Fresh<br>Bakery<br>Foods.</h1>
+          <button class="btn btn-primary mt-4">Shop Now</button>
+        </div>
+        <div class="col-md-6 hero-image text-center">
+          <img src="/api/placeholder/400/300" alt="Croissant basket" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Section -->
+  <section class="category-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-3 mb-4">
+          <div class="category-item">
+            <img src="/api/placeholder/60/60" alt="Croissant" />
+            <h6>Croissant</h6>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="category-item">
+            <img src="/api/placeholder/60/60" alt="Cookies" />
+            <h6>Cookies</h6>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="category-item">
+            <img src="/api/placeholder/60/60" alt="Cupcake" />
+            <h6>Cupcake</h6>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="category-item">
+            <img src="/api/placeholder/60/60" alt="Choux Pastry" />
+            <h6>Choux Pastry</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <div class="feature-text">
+              <h5>Free Delivery</h5>
+              <p>Free Delivery untuk area Purwokerto dan sekitarnya</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <div class="feature-text">
+              <h5>24/7 Support</h5>
+              <p>Admin Support 24/7 selama jam kerja</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="feature-text">
+              <h5>Secure Payment</h5>
+              <p>Pembayaran bisa melalui card atau metode lainnya</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Products Section -->
+  <section class="special-products">
+    <div class="container">
+      <div class="section-title">
+        <h2>Special Bakery Product</h2>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-3 mb-4">
+          <div class="product-card">
+            <img src="/api/placeholder/120/120" alt="Cookies" class="product-img" />
+            <h5 class="product-title">Cookies</h5>
+            <p class="product-price">Rp. 25.000</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="product-card">
+            <img src="/api/placeholder/120/120" alt="Apple Pie" class="product-img" />
+            <h5 class="product-title">Apple Pie</h5>
+            <p class="product-price">Rp. 35.000</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="product-card">
+            <img src="/api/placeholder/120/120" alt="Blueberry Muffin" class="product-img" />
+            <h5 class="product-title">Blueberry Muffin</h5>
+            <p class="product-price">Rp. 15.000</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="product-card">
+            <img src="/api/placeholder/120/120" alt="Chocolate Cake" class="product-img" />
+            <h5 class="product-title">Chocolate Cake</h5>
+            <p class="product-price">Rp. 50.000</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="product-card">
+            <img src="/api/placeholder/120/120" alt="Red Velvet Cupcake" class="product-img" />
+            <h5 class="product-title">Red Velvet Cupcake</h5>
+            <p class="product-price">Rp. 12.000</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="product-card">
+            <img src="/api/placeholder/120/120" alt="Apple Choux Pastry" class="product-img" />
+            <h5 class="product-title">Apple Choux Pastry</h5>
+            <p class="product-price">Rp. 17.000</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="product-card">
+            <img src="/api/placeholder/120/120" alt="Vanilla Cupcake" class="product-img" />
+            <h5 class="product-title">Vanilla Cupcake</h5>
+            <p class="product-price">Rp. 10.000</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="product-card">
+            <img src="/api/placeholder/120/120" alt="Cherry Cake" class="product-img" />
+            <h5 class="product-title">Cherry Cake</h5>
+            <p class="product-price">Rp. 180.000 <span class="price-strike">Rp. 240.000</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offer Section -->
+  <section class="offer-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5 mb-4 mb-md-0">
+          <div class="offer-img">
+            <div class="discount-badge">80% Off</div>
+            <img src="/api/placeholder/300/300" alt="Special Offer" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-7">
+          <h2 class="mb-3">All Products<br>80% Discount.</h2>
+          <button class="btn btn-primary">Shop Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers Section -->
+  <section class="best-sellers">
+    <div class="container">
+      <div class="section-title">
+        <h2>Best Sellers</h2>
+      </div>
+      <div class="position-relative">
+        <div id="bestSellersCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                  <div class="product-card">
+                    <img src="/api/placeholder/120/120" alt="Shortcrust Pastry" class="product-img" />
+                    <h5 class="product-title">Shortcrust Pastry</h5>
+                    <p class="product-price">Rp. 15.000</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                  <div class="product-card">
+                    <img src="/api/placeholder/120/120" alt="Strawberry Cupcake" class="product-img" />
+                    <h5 class="product-title">Strawberry Cupcake</h5>
+                    <p class="product-price">Rp. 12.000</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                  <div class="product-card">
+                    <img src="/api/placeholder/120/120" alt="Floral Cake" class="product-img" />
+                    <h5 class="product-title">Floral Cake</h5>
+                    <p class="product-price">Rp. 180.000</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                  <div class="product-card">
+                    <img src="/api/placeholder/120/120" alt="Choux Pastry" class="product-img" />
+                    <h5 class="product-title">Choux Pastry</h5>
+                    <p class="product-price">Rp. 18.000</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                  <div class="product-card">
+                    <img src="/api/placeholder/120/120" alt="Chocolate Cake" class="product-img" />
+                    <h5 class="product-title">Chocolate Cake</h5>
+                    <p class="product-price">Rp. 45.000</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                  <div class="product-card">
+                    <img src="/api/placeholder/120/120" alt="Red Velvet" class="product-img" />
+                    <h5 class="product-title">Red Velvet</h5>
+                    <p class="product-price">Rp. 50.000</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                  <div class="product-card">
+                    <img src="/api/placeholder/120/120" alt="Butter Croissant" class="product-img" />
+                    <h5 class="product-title">Butter Croissant</h5>
+                    <p class="product-price">Rp. 15.000</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                  <div class="product-card">
+                    <img src="/api/placeholder/120/120" alt="Blueberry Pie" class="product-img" />
+                    <h5 class="product-title">Blueberry Pie</h5>
+                    <p class="product-price">Rp. 35.000</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#bestSellersCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#bestSellersCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="footer-logo">
+            <img src="/api/placeholder/120/40" alt="Baked2Bites" />
+          </div>
+          <p class="footer-tagline">Crafted with Love,<br>Enjoyed in Every Bites</p>
+        </div>
+        <div class="col-md-2 col-6 mb-4 mb-md-0 footer-links">
+          <h5>Halaman</h5>
+          <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Produk</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6 mb-4 mb-md-0 footer-links">
+          <h5>Toko</h5>
+          <address>
+            #5111 Jati Pulo street,<br>
+            Jakarta, 16161<br>
+            Indonesia<br>
+            <br>
+            0878784137
+          </address>
+        </div>
+        <div class="col-md-3">
+          <h5>Social Media</h5>
+          <div class="social-icons mb-4">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright text-center">
+        <p>Copyright © 2023 Baked2Bites. All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script>
+    // Toggle active class for navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.forEach(navLink => navLink.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+
+      // Add hover effect for product cards
+      const productCards = document.querySelectorAll('.product-card');
+      productCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px)';
+          this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        });
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+          this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+        });
+      });
+
+      // Add smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Add to cart function
+      const shopButtons = document.querySelectorAll('.btn-primary');
+      shopButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          alert('Produk ditambahkan ke keranjang!');
+        });
+      });
+      
+      // Cart counter
+      let cartCount = 0;
+      const cartIcon = document.querySelector('.fa-shopping-cart');
+      cartIcon.addEventListener('click', function() {
+        if (cartCount === 0) {
+          alert('Keranjang Anda kosong!');
+        } else {
+          alert(`Anda memiliki ${cartCount} item di keranjang`);
+        }
+      });
+      
+      // Add cart counter to shop buttons
+      shopButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          cartCount++;
+          // Update visual cart counter if you want to add a badge
+          const badge = document.createElement('span');
+          badge.className = 'position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger';
+          badge.innerText = cartCount;
+          cartIcon.parentElement.classList.add('position-relative');
+          
+          // Remove existing badge
+          const existingBadge = cartIcon.parentElement.querySelector('.badge');
+          if (existingBadge) {
+            existingBadge.remove();
+          }
+          
+          cartIcon.parentElement.appendChild(badge);
+        });
+      });
+      
+      // Product image hover zoom effect
+      const productImages = document.querySelectorAll('.product-img');
+      productImages.forEach(img => {
+        img.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.1)';
+          this.style.transition = 'transform 0.3s';
+        });
+        img.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+      });
+      
+      // Responsive carousel adjustment
+      function adjustCarousel() {
+        if (window.innerWidth < 768) {
+          document.querySelectorAll('.carousel-item .row .col-md-3').forEach(item => {
+            item.classList.remove('col-md-3');
+            item.classList.add('col-6');
+          });
+        } else {
+          document.querySelectorAll('.carousel-item .row .col-6').forEach(item => {
+            if (item.classList.contains('col-md-3')) return;
+            item.classList.remove('col-6');
+            item.classList.add('col-md-3');
+          });
+        }
+      }
+      
+      adjustCarousel();
+      window.addEventListener('resize', adjustCarousel);
+    });
+  </script>
+</body>
+</html>
